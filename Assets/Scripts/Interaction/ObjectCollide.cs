@@ -41,9 +41,15 @@ public class ObjectTouchHandler : MonoBehaviour
     {
         if (other.gameObject.CompareTag("GrabCube"))
         {
+            objRenderer.material.color = touchColor;
             Debug.Log("Entered the target object's Trigger zone!");
             TriggerYourEvent();
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        objRenderer.material.color = originalColor;
     }
 
     void TriggerYourEvent()
